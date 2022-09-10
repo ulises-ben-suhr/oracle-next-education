@@ -1,7 +1,403 @@
+/*    font-family: 'Barlow Condensed', sans-serif;  */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+
+/*      font-family: 'Bellefair', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
+
+/* --------------------------- */
+/* ---- CUSTOM PROPERTIES ---- */
+/* --------------------------- */
+
+:root {
+    --clr-dark: 230 35% 7%;
+    --clr-ligth: 231 77% 90%;
+    --clr-white:  0 0% 100%;
+
+    /* --fs-900: clamp(5rem,7vw + 1rem,9.375rem); */
+    /* --fs-800: clamp(3rem,7vw + 1rem,5rem); */
+    --fs-700: clamp(1.25rem,7vw,3rem);
+    --fs-600: 1.25rem;
+    --fs-500: 1rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* REVISAR */
+@media (min-width: 35em) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
+        --fs-400: 1rem;
+    }
+}
+
+/* REVISAR */
+@media (min-width: 45em) {
+    :root {
+        --fs-800: 6.25rem;
+        --fs-700: clamp(1rem, 3.5vw, 5rem);
+        --fs-600: 1.75rem;
+        --fs-500: clamp(.75rem, 2.125vw, 1.5rem);
+        --fs-400: 1.125rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------- */
+/* ---------- RESET ---------- */
+/* --------------------------- */
+
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+
+/* -------- BOX SIZING ------- */
+
+*::before,
+*,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* ---------- MARGIN --------- */
+
+
+body,
+h1,h2,h3,
+h4,h5,h6,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+h1,h2,h3,
+h4,h5,h6,
+p {
+    font-weight: 400;
+}
+
+/* ----------- BODY ---------- */
+
+
+body {
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-400);
+    color: hsl( var(--clr-white) );
+    background-color: hsl( var(--clr-dark) );
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+
+/* --------- IMAGES ---------- */
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ---------- FORMS ---------- */
+
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* ---- CANCEL ANIMATIONS ---- */
+
+
+@media (prefers-reduced-motion: reduce) {  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------- */
+/* ----- UTILITY CLASSES ----- */
+/* --------------------------- */
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1.125rem);
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.container {
+    padding-inline: 2em; /*padding horizontal*/
+    margin-inline: auto; /*margen horizontal*/
+    max-width: 80rem;
+}
+
 .visible {
     display: block;
 }
 
 .invisible {
     display: none;
+}
+
+textarea {
+    width: 360px;
+    height: 150px;
+}
+
+/* --------------------------- */
+/* ---------- COLOR ---------- */
+
+.bg-dark { background-color: hsl( var(--clr-dark) ); }
+.bg-accent { background-color: hsl( var(--clr-ligth) ); }
+.bg-white { background-color: hsl( var(--clr-white) ); }
+
+.text-dark { color: hsl( var(--clr-dark) ); }
+.text-accent { color: hsl( var(--clr-ligth) ); }
+.text-accent-light { color: hsl( var(--clr-ligth) / .8 ); }
+.text-white { color: hsl( var(--clr-white) ); }
+
+/* --------------------------- */
+/* -------- TYPOGRAPHY ------- */
+
+.ff-serif { font-family: var(--ff-serif); }
+.ff-sans-cond { font-family: var(--ff-sans-cond); }
+.ff-sans.normal { font-family: var(--ff-sans-normal); }
+
+.letter-spacing-1 { letter-spacing: 4.75px; }
+.letter-spacing-2 { letter-spacing: 2.7px; }
+.letter-spacing-3 { letter-spacing: 2.35px; }
+
+.uppercase { text-transform: uppercase;}
+
+.fs-900{ font-size: var(--fs-900) }
+.fs-800{ font-size: var(--fs-800) }
+.fs-700{ font-size: var(--fs-700) }
+.fs-600{ font-size: var(--fs-600) }
+.fs-500{ font-size: var(--fs-500) }
+.fs-400{ font-size: var(--fs-400) }
+.fs-300{ font-size: var(--fs-300) }
+.fs-200{ font-size: var(--fs-200) }
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600
+{
+    line-height: 1.1;
+}
+
+/* --------------------------- */
+/* -------- COMPONENTS ------- */
+/* --------------------------- */
+
+body {
+    background-image: url(background-home-mobile.jpg);
+    background-position: bottom center;
+    background-size: cover;
+}
+
+main {
+    justify-items: center;
+}
+
+.logo {
+    padding-top: 1.5rem;
+}
+
+.logo * {
+    fill: hsl( var(--clr-white) );
+}
+
+.bienvenida {
+    padding-inline: 3.5rem;
+}
+
+.campoTexto {
+    background-color: hsl( var(--clr-ligth) / .125);
+    border: none;
+}
+
+.visualizador {
+    max-width: 85vw;
+    padding: 1.5rem 1rem;
+    background-color: hsl( var(--clr-dark)/ .95 );
+}
+
+.visualizador .textoNoEncontrado :last-child {
+    margin-top: 1.5rem;
+}
+
+.satelite {
+    display: none;
+}
+
+.copyButton {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    padding: var(--underline-gap, 1rem) .75rem;
+    border: none;
+    border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+    background-color: transparent;
+}
+
+.copyButton:hover,
+.copyButton:focus {
+    border-color: hsl( var(--clr-white) / .25 );
+}
+
+.comandos {
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
+    --underline-gap: 2rem;
+    margin: 0;    padding: 0;
+    background-color: hsl( var(--clr-dark) / .95 );
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.underline-indicators > * {
+    cursor: pointer;
+    margin: 0 1rem;
+    padding: var(--underline-gap, 1rem) .75rem;
+    border: none;
+    border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+    background-color: transparent;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+    border-color: hsl( var(--clr-white) / .25 );
+}
+
+@media (min-width: 35rem) {
+    body {
+        background-image: url(background-home-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    body {
+        background-image: url(background-home-desktop.jpg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    main {
+        min-height: 100vh;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        --gap: 0;
+    }
+
+    textarea {
+        width: minmax(360px, 720px);
+        height: 150px;
+    }
+
+    .logo {
+        grid-column: 1/3;
+    }
+
+    .titulo {
+        grid-column: 1/3;
+        grid-row: 2;
+    }
+
+    .bienvenida {
+        grid-column: 1/3;
+        grid-row: 3;
+    }
+
+    .entradaDatos {
+        grid-column: 1/3;
+    }
+
+    .visualizador {
+        grid-column: 3;
+        grid-row: 1 / 6;
+        width: 360px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .comandos {
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    .satelite {
+        display: block;
+    }
+}
+
+footer {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .75rem;
+    background-color: hsl( var(--clr-dark) / .95 );
 }
